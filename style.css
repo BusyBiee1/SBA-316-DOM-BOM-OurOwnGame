@@ -1,36 +1,76 @@
 /* General Reset */
-body {    
+* {
+    margin: 0;
+    /*padding: 0;*/
+   /* box-sizing: border-box;*/
+}
+body {
     font-family: Arial, sans-serif;
+    font-size:medium;
     background-color: rgb(79, 218, 228);
-    align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    /*align-items: center;*/
   }
 
-.gameBoard {
-    width: 50px;
-    height: 200px;
-    align-items: center;
-    border-top: 2px;
-    border-color: black;
-    border-width: 1px;
+.gameContainer {
+    /*float: auto;*/
+    margin-top : 100px;
+    width: 400px;
+    height: 600px;
+    border: 1px solid black;
+   /* border-color: black;*/
+    /*border-width: 2px;*/
+    background-color: #20b2aa;
+    justify-content: center;    
 }
 
 .gameTitle{
-    width: 10px;
-    height: 100px;
-    align-items: center;
-    border-top: 2px;
+    /*float: auto;*/
+    /*margin-top: 0;*/
+    /*margin-top : 150px;*/
+    /*margin-left : 5px;*/
+    /*position:relative*/
+    height: 50px;
+    text-align: center;
+    /*border-top: 2px;*/
     border-color: black;
-    border-width: 1px;
+    /*border-width: 2px;*/
+    background-color: rgb(58, 143, 139);
 }
 
 .scoreBoard {
-
+    /*margin: 0;*/
+    /*margin-top : 150px;*/
+    /*margin-l0ft : 5px;*/
+    /*position:relative;*/
+    height: 100px;
+    text-align: center;    
+    /*border-top: 2px;*/
+    border-color: black;
+    border-width: 2px;
+    background-color: rgb(119, 160, 214);
 }
 
 .gameScreen {
-
+    /*margin-top : 5px;*/
+    /*margin-left : 5px;*/
+    height: 410px;
+    text-align: center;    
+    /*border-top: 2px;*/
+    border-color: black;
+    border-width: 2px;
+    background-color: rgb(178, 203, 236);
 }
 
 .bottomBar {
-    
+    /*margin-top : 5px;*/
+    /*margin-left : 5px;*/
+    height: 40px;
+    text-align: center;    
+    /*border-top: 2px;*/
+    border-color: black;
+    border-width: 2px;
+    background-color: rgb(106, 158, 226);    
 }
