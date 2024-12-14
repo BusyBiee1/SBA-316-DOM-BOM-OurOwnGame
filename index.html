@@ -11,16 +11,22 @@
     <body>
         <div class="gameContainer">
             <div class="gameTitle">
-                <h4> game title: ball catch game </h4>
+                <h1>Catch the Ball - Game</h1>
             </div>
             <div class="scoreBoard"> 
-                <h4> Scoreboard ball catch game </h4>
+                <p>Score: <span id="score">0</span></p>
+                <p>Lives Left: <span id="lives">3</span></p>               
             </div>
             <div class="gameScreen">
                 <h4> GameScreen ball catch game </h4>
             </div> 
             <div class="bottomBar">
-                <h4> bottombar ball catch game </h4>                
+                <!-- Player Name Form -->
+                <form id="playerForm">
+                <label for="playerName">Enter Your Name:</label>
+                <input type="text" id="playerName" placeholder="Your Name" required />
+                <button type="submit">Start Game</button>
+                </form>                
             </div>     
         </div>
         <script src="app.js" async defer></script>

@@ -16,9 +16,9 @@ body {
 
 .gameContainer {
     /*float: auto;*/
-    margin-top : 100px;
+    margin-top : 75px;
     width: 400px;
-    height: 600px;
+    height: 584px;
     border: 1px solid black;
    /* border-color: black;*/
     /*border-width: 2px;*/
@@ -31,13 +31,19 @@ body {
     /*margin-top: 0;*/
     /*margin-top : 150px;*/
     /*margin-left : 5px;*/
-    /*position:relative*/
+    /*position:relative;*/
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+
     height: 50px;
+
     border: 1px solid black;
-    text-align: center;
+    border-width: 2px;
+    background-color: rgb(58, 143, 139);
+
     /*border-top: 2px;*/
     /*border-width: 2px;*/
-    background-color: rgb(58, 143, 139);
 }
 
 .scoreBoard {
@@ -45,8 +51,13 @@ body {
     /*margin-top : 150px;*/
     /*margin-l0ft : 5px;*/
     /*position:relative;*/
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
     height: 100px;
-    text-align: center;    
+    /*text-align: center;    */
+    
     /*border-top: 2px;*/
     border: 1px solid black;
     border-width: 2px;
@@ -56,21 +67,21 @@ body {
 .gameScreen {
     /*margin-top : 5px;*/
     /*margin-left : 5px;*/
-    height: 410px;
+    height: 403px;
     text-align: center;    
     /*border-top: 2px;*/
     border: 1px solid black;
     border-width: 2px;
-    background-color: rgb(178, 203, 236);
+    background-color: rgb(227, 236, 248);
 }
 
 .bottomBar {
     /*margin-top : 5px;*/
     /*margin-left : 5px;*/
-    height: 40px;
+    height: 20px;
     text-align: center;    
     /*border-top: 2px;*/
     border: 1px solid black;
     border-width: 2px;
-    background-color: rgb(106, 158, 226);    
+    background-color: rgb(60, 182, 166);    
 }
