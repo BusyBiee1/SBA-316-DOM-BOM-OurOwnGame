@@ -1,0 +1,36 @@
+/* General Reset */
+body {    
+    font-family: Arial, sans-serif;
+    background-color: rgb(79, 218, 228);
+    align-items: center;
+  }
+
+.gameBoard {
+    width: 50px;
+    height: 200px;
+    align-items: center;
+    border-top: 2px;
+    border-color: black;
+    border-width: 1px;
+}
+
+.gameTitle{
+    width: 10px;
+    height: 100px;
+    align-items: center;
+    border-top: 2px;
+    border-color: black;
+    border-width: 1px;
+}
+
+.scoreBoard {
+
+}
+
+.gameScreen {
+
+}
+
+.bottomBar {
+    
+}
