@@ -6,7 +6,7 @@
 }
 body {
     font-family: Arial, sans-serif;
-    font-size:medium;
+    font-size:larger;
     background-color: rgb(79, 218, 228);
     display: flex;
     justify-content: center;
@@ -17,8 +17,8 @@ body {
 .gameContainer {
     /*float: auto;*/
     margin-top : 75px;
-    width: 400px;
-    height: 584px;
+    width: 435px;
+    height: 588px;
     border: 1px solid black;
    /* border-color: black;*/
     /*border-width: 2px;*/
@@ -67,8 +67,10 @@ body {
 .gameScreen {
     /*margin-top : 5px;*/
     /*margin-left : 5px;*/
+    text-align: center;  
+
     height: 403px;
-    text-align: center;    
+  
     /*border-top: 2px;*/
     border: 1px solid black;
     border-width: 2px;
@@ -78,8 +80,10 @@ body {
 .bottomBar {
     /*margin-top : 5px;*/
     /*margin-left : 5px;*/
-    height: 20px;
     text-align: center;    
+    
+    height: 25px;
+    
     /*border-top: 2px;*/
     border: 1px solid black;
     border-width: 2px;
