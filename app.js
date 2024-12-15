@@ -26,39 +26,59 @@ let lives = 3;
 let isGameOver = false;
 
 // Add a new event submit to the playerform (where user enters and presses the start button) so that game can begin after reseting to game start variables
-playerForm.addEventListener("submit", (that_event) => {
-  that_event.preventDefault(); /* prevent its default behavior of submitting */
+playerForm.addEventListener("submit", (event) => {
+  event.preventDefault(); /* prevent its default behavior of submitting */
   resetGame(); /* and we have have our own resetGame event triggered on submit event */
 });
 
 // Move the basket based to the left or right keydown event from EventListner 
-document.addEventListener("keydown", (e) => {
+document.addEventListener("keydown", (event) => {
 
     // if the game is over no need to read keys further
     if (isGameOver) return;
 
-    // get the postion of the bastket 
-    //const parentRect = gameScreen.getBoundingClientRect();
-    //const childRect = basket.getBoundingClientRect();
-    //basketPosition = childRect.left;
-    //// move the basket left or rigth based on the left or right button pressed.
-    //if ((e.key === "ArrowLeft") && (basketPosition < parentRect.left)) {  /* move bastket only with in the parent container (gamescreen) so even if left key pressed dont move it too left beyond the gameScreen */
-    //    basket.style.left = `${basketPosition - 20}px`; /* move the basket left by 20px when left key is pressed*/
-    //} 
-    //else if (e.key === "ArrowRight" && basketPosition < gameScreen.clientWidth - basket.offsetWidth) {  /* move bastket only with in the parent container (gamescreen) so even if right pressed dont move it right beyond the gameScreen */
-    //  basket.style.left = `${basketPosition + 20}px`; /* move the basket right by 20px when right key is pressed*/
-    //}
+    //// get the postion of the bastket 
+    const basketWidth = basket.offsetWidth; // Get the width of the basket
+    const gameScreenRect = gameScreen.getBoundingClientRect(); // Get the dimensions of the game screen
 
+    if (event.key === "ArrowLeft") {
+        // Calculate the new position
+        let newPosition = basket.offsetLeft - 20; // Move left by 20 pixels
+        // newPosition = newPosition - basket.clientWidth; // Move left by 20 pixels
+
+        console.log("---");
+        console.log(`basketwidth=${basket.clientWidth}`);        
+        console.log(`basket-offsetleft=${basket.offsetLeft}`);
+        console.log(`newPosition=${newPosition}`);        
+        console.log(`newPosition - basket.clientWidth=${newPosition - basket.clientWidth}`);
+
+        // Check if the new position is within the bounds of the game screen
+        if ((newPosition - basket.clientWidth) < 0) {
+            newPosition = 0; // Prevent moving past the left edge
+        }
+        basket.style.left = `${newPosition}px`; // Update the basket's position
+    }
+
+    if (event.key === "ArrowRight") {
+        // Calculate the new position
+        let newPosition = basket.offsetLeft + 20; // Move right by 20 pixels
+
+        // Check if the new position is within the bounds of the game screen
+        if (newPosition > gameScreenRect.width - basketWidth) {
+            newPosition = gameScreenRect.width - basketWidth; // Prevent moving past the right edge
+        }
+        basket.style.left = `${newPosition}px`; // Update the basket's position
+    }
    // get the postion of the bastket 
-     const basketPosition = basket.offsetLeft; /* get the number of pixels the distance (in pixels) the left edge of the basket is away from its parent */
+   // const basketPosition = basket.offsetLeft; /* get the number of pixels the distance (in pixels) the left edge of the basket is away from its parent */
   
     //move the basket left or rigth based on the left or right button pressed.
-      if ((e.key === "ArrowLeft") && (basketPosition > 0)) {  /* move bastket only with in the parent container (gamescreen) so even if left key pressed dont move it too left beyond the gameScreen */
-         basket.style.left = `${basketPosition - 20}px`; /* move the basket left by 20px when left key is pressed*/
-      } 
-      else if (e.key === "ArrowRight" && basketPosition < gameScreen.clientWidth - basket.offsetWidth) {  /* move bastket only with in the parent container (gamescreen) so even if right pressed dont move it right beyond the gameScreen */
-         basket.style.left = `${basketPosition + 20}px`; /* move the basket right by 20px when right key is pressed*/
-      }
+    //  if ((e.key === "ArrowLeft") && (basketPosition > 0)) {  /* move bastket only with in the parent container (gamescreen) so even if left key pressed dont move it too left beyond the gameScreen */
+    //     basket.style.left = `${basketPosition - 20}px`; /* move the basket left by 20px when left key is pressed*/
+    //  } 
+    //  else if (e.key === "ArrowRight" && basketPosition < gameScreen.clientWidth - basket.offsetWidth) {  /* move bastket only with in the parent container (gamescreen) so even if right pressed dont move it right beyond the gameScreen */
+    //     basket.style.left = `${basketPosition + 20}px`; /* move the basket right by 20px when right key is pressed*/
+    //  }
     
 });
 
@@ -148,7 +168,7 @@ function ballMissed(ball, ballInterval) {
         livesDisplay.style.fontWeight = "bold"; 
         break;
       default :
-        livesDisplay.style.color = "green";
+        livesDisplay.style.color = "black";
         livesDisplay.style.fontWeight = "normal"; 
     }
     
