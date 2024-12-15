@@ -4,88 +4,134 @@
     /*padding: 0;*/
    /* box-sizing: border-box;*/
 }
-body {
-    font-family: Arial, sans-serif;
-    font-size:larger;
-    background-color: rgb(79, 218, 228);
-    display: flex;
-    justify-content: center;
-    align-items:center;
-    /*align-items: center;*/
-  }
+    body {
+        font-family: Arial, sans-serif;
+        font-size:larger;
+        background-color: rgb(79, 218, 228);
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        /*align-items: center;*/
+        }
 
-.gameContainer {
-    /*float: auto;*/
-    margin-top : 75px;
-    width: 435px;
-    height: 588px;
-    border: 1px solid black;
-   /* border-color: black;*/
-    /*border-width: 2px;*/
-    background-color: #20b2aa;
-    justify-content: center;    
-}
+        .gameContainer {
+            /*float: auto;*/
+            margin-top : 75px;
+            width: 435px;
+            height: 588px;
+            border: 1px solid black;
+            /* border-color: black;*/
+            /*border-width: 2px;*/
+            background-color: #20b2aa;
+            justify-content: center;    
+        }
 
-.gameTitle{
-    /*float: auto;*/
-    /*margin-top: 0;*/
-    /*margin-top : 150px;*/
-    /*margin-left : 5px;*/
-    /*position:relative;*/
-    display: flex;
-    justify-content: center; 
-    align-items: center;
+            .gameTitle{
+                /*float: auto;*/
+                /*margin-top: 0;*/
+                /*margin-top : 150px;*/
+                /*margin-left : 5px;*/
+                /*position:relative;*/
+                display: flex;
+                justify-content: center; 
+                align-items: center;
 
-    height: 50px;
+                height: 50px;
 
-    border: 1px solid black;
-    border-width: 2px;
-    background-color: rgb(58, 143, 139);
+                border: 1px solid black;
+                border-width: 2px;
+                background-color: rgb(58, 143, 139);
 
-    /*border-top: 2px;*/
-    /*border-width: 2px;*/
-}
+                /*border-top: 2px;*/
+                /*border-width: 2px;*/
+            }
 
-.scoreBoard {
-    /*margin: 0;*/
-    /*margin-top : 150px;*/
-    /*margin-l0ft : 5px;*/
-    /*position:relative;*/
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    
-    height: 100px;
-    /*text-align: center;    */
-    
-    /*border-top: 2px;*/
-    border: 1px solid black;
-    border-width: 2px;
-    background-color: rgb(119, 160, 214);
-}
+            .scoreBoard {
+                /*margin: 0;*/
+                /*margin-top : 150px;*/
+                /*margin-l0ft : 5px;*/
+                /*position:relative;*/
+                font-size:larger;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                
+                height: 100px;
+                /*text-align: center;    */
+                
+                /*border-top: 2px;*/
+                border: 1px solid black;
+                border-width: 2px;
+                background-color: rgb(119, 160, 214);
+            }
 
-.gameScreen {
-    /*margin-top : 5px;*/
-    /*margin-left : 5px;*/
-    text-align: center;  
+            .gameScreen {
+                /*margin-top : 5px;*/
+                /*margin-left : 5px;*/
+                text-align: center;  
 
-    height: 403px;
-  
-    /*border-top: 2px;*/
-    border: 1px solid black;
-    border-width: 2px;
-    background-color: rgb(227, 236, 248);
-}
+                height: 403px;
+            
+                /*border-top: 2px;*/
+                border: 1px solid black;
+                border-width: 2px;
+                background-color: rgb(227, 236, 248);
+            }
 
-.bottomBar {
-    /*margin-top : 5px;*/
-    /*margin-left : 5px;*/
-    text-align: center;    
-    
-    height: 25px;
-    
-    /*border-top: 2px;*/
-    border: 1px solid black;
-    border-width: 2px;
-    background-color: rgb(60, 182, 166);    
-}
+            .bottomBar {
+                /*margin-top : 5px;*/
+                /*margin-left : 5px;*/
+                text-align: center;    
+                
+                height: 25px;
+                
+                /*border-top: 2px;*/
+                border: 1px solid black;
+                border-width: 2px;
+                background-color: rgb(60, 182, 166);    
+            }
+
+            /* defne the ball that is dropped */
+            .ball {
+                /* size of the ball */
+                width: 20px;
+                height: 20px;
+
+                /* start the drop of the ball from the top of its element (gameScreen) */
+                position: absolute;
+                top: 0;
+                
+                /* make the element look like a ball by make it a circle */
+                border-radius: 50%; /* border-radius take both in px and in % as Parametes (percentage of the radius, in this case 50% of 20px (definition size of the ball)) */
+
+                background-color: rgb(51, 195, 255);
+
+                /* when the transition (animation) happens that is when the ball drops maket it appear smooth falling ball and not in jerky motion */
+                transition: top 0.05s linear; /*  there threee parametes tell -> from the top of the parent element, in .05 sections motion of drop, in a straint linear fashion with the same .05 seconds speed of drop */
+            }
+            
+            /* define the basket that is to catch the ball  */
+            #basket {
+                /* size of the catching basket that is to catch the ball */
+                width: 70px;
+                height: 30px;
+                
+                /* fix the position of the basket just above (10px above its parent element */
+                position: absolute;
+                bottom: 10px;
+
+                /* center the basket in the middle of the parent  */
+                left: 50%; /* puts the left edge of basket to the center of parent but thats not center yet */
+                transform: translateX(-50%); /* when translateX is parameter to the transform, the translateX(-50%) positions the basket to the left, half the wide of the basket so that it is now in the center of the parent */
+
+                /* color of the basket */
+                border: 5px solid #ff5733; /* Border color */
+                
+                /* make it look like a basket shape - U-shape*/
+                border-top: none; /* Remove top half/border (bottom-right, and bottom-left) rounded to form U shape */
+                border-radius: 0 0 30px 30px; /* Round the bottom corners for U shape - pareameters are (top-left, top-right, bottom-right, and bottom-left) */
+
+                /* make the basket inside partially transparant */ 
+                background-color: rgba(255, 87, 51, 0.30);  /* the last parameter value 0.30 makes it 30% opacity */
+                /* background-color: transparent; */
+            }
