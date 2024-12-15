@@ -9,16 +9,25 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
+        
         <div id="gameContainer">
+            <!-- The title of the game area -->
             <div class="gameTitle">
                 <h1>Catch the Ball - Game</h1>
             </div>
+
+            <!-- The score board and lives left area -->
             <div class="scoreBoard"> 
                 <p>Score: <span id="score">0</span></p>
                 <p>Lives Left: <span id="lives">3</span></p>               
             </div>
+
+            <!-- The actual game playing displayed area -->
             <div id="gameScreen">
-                <div id="basket"></div> <!-- U-shaped basket -->            </div> 
+                <div id="basket"></div> <!-- U-shaped basket -->
+            </div> 
+
+            <!-- The bottom bar with user name with start game button -->
             <div class="bottomBar">
                 <!-- Player Name Form -->
                 <form id="playerForm">
@@ -27,7 +36,15 @@
                 <button type="submit">Start Game</button>
                 </form>                
             </div>     
+
+            <!-- Game Over pop up Screen but hidden -->
+            <div id="gameOver" class="hidden">
+                <h2>Game Over</h2>
+                <p id="finalScore"></p>
+                <button id="restartBtn">Restart</button>
+            </div>            
         </div>
+
         <script src="app.js" async defer></script>
     </body>
 </html>

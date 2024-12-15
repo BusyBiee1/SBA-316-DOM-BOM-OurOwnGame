@@ -27,8 +27,8 @@ let isGameOver = false;
 
 // Add a new event submit to the playerform (where user enters and presses the start button) so that game can begin after reseting to game start variables
 playerForm.addEventListener("submit", (that_event) => {
-  that_event.preventDefault();
-  resetGame();
+  that_event.preventDefault(); /* prevent its default behavior of submitting */
+  resetGame(); /* and we have have our own resetGame event triggered on submit event */
 });
 
 // Move the basket based to the left or right keydown event from EventListner 
@@ -43,17 +43,11 @@ document.addEventListener("keydown", (e) => {
     // move the basket left or rigth based on the left or right button pressed.
     if (e.key === "ArrowLeft" && basketPosition > 0) {  /* move bastket only with in the parent container (gamescreen) so even if left key pressed dont move it too left beyond the gameScreen */
       basket.style.left = `${basketPosition - 20}px`; /* move the basket left by 20px when left key is pressed*/
-    } else if (
-      e.key === "ArrowRight" && basketPosition < gamescreen.clientWidth - basket.offsetWidth  /* move bastket only with in the parent container (gamescreen) so even if right pressed dont move it right beyond the gameScreen */
-/*    } else if (
-        e.key === "ArrowRight" &&
-        basketPosition < gameScreen.clientWidth - basket.offsetWidth  
-*/      ) 
-    {
+    } 
+    else if (e.key === "ArrowRight" && basketPosition < gameScreen.clientWidth - basket.offsetWidth) {  /* move bastket only with in the parent container (gamescreen) so even if right pressed dont move it right beyond the gameScreen */
       basket.style.left = `${basketPosition + 20}px`; /* move the basket right by 20px when right key is pressed*/
     }
-  }
-);
+});
 
 // Spawn/Throw a new ball
 function spawnBall() {
@@ -106,7 +100,7 @@ function ballCaught(ball, ballInterval) {
     
     /* stop the repeated execution of the animation of the ball that was sent when the ball was thrown/spawn */
     clearInterval(ballInterval);
-    ball.remove(); /* since we threw/spawned this ball specially we simply remove it from the came since it has been caught and no longer needed in the game. therefore we dont need need to loop thru looking for any and all the balls in documents classlist like we do in clearballs function for surety */
+    ball.remove(); /* since we threw/spawned this ball specially we simply remove it from the game since it has been caught and no longer needed in the game. therefore we dont need need to loop thru looking for any and all the balls in documents classlist like we do in clearballs function for surety */
   
     /* force a delay before the next ball is thrown/spawn */
     setTimeout(() => spawnBall(), 1500); 
@@ -172,7 +166,7 @@ function endGame() {
 
     isGameOver = true;
     finalScore.textContent = `Your Final Score: ${score}`; /* display final score */
-    gameOverScreen.classList.remove("hidden"); /* unhiding the gameoverscrreen element a form (remove the hidden class from the gameOverScrreen element's list of classes) in the classList collection of gameOverSreen element */
+    gameOverScreen.classList.remove("hidden"); /* unhiding the gameoverscrreen element a form (remove the hidden class from the gameOverScrreen element's list of classes that was added earlier) in the classList collection of gameOverSreen element */
 }
 
 // Restart game by adding a click event to the EventListener prperty list of the restartBtn element so that click event can be captures when the user presses the restartBtn to resetGame and start the game all over again */
@@ -187,7 +181,7 @@ function resetGame() {
     livesDisplay.textContent = lives;
     livesDisplay.style.color = "green";
     livesDisplay.style.fontWeight = "bold"; 
-    gameOverScreen.classList.add("hidden");
+    gameOverScreen.classList.add("hidden"); /* make the game over form hidden by adding a hidden class with display set to none to make it disappear*/
     clearBalls();
     spawnBall();
   }

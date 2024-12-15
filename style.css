@@ -18,12 +18,15 @@
             /*float: auto;*/
             margin-top : 75px;
             width: 435px;
-            height: 588px;
-            border: 1px solid black;
+            height: 595px;
+
+            position: relative;
+            border: 1px solid rgb(216, 14, 31);
             /* border-color: black;*/
             /*border-width: 2px;*/
-            background-color: #20b2aa;
+            background-color: rgb(32, 178, 170);
             justify-content: center;    
+            /*align-items: center;*/
         }
 
             .gameTitle{
@@ -39,7 +42,6 @@
                 height: 50px;
 
                 border: 1px solid black;
-                border-width: 2px;
                 background-color: rgb(58, 143, 139);
 
                 /*border-top: 2px;*/
@@ -61,7 +63,6 @@
                 
                 /*border-top: 2px;*/
                 border: 1px solid black;
-                border-width: 2px;
                 background-color: rgb(119, 160, 214);
             }
 
@@ -70,11 +71,12 @@
                 /*margin-left : 5px;*/
                 text-align: center;  
 
-                height: 403px;
-            
+                height: 410px;
+                /* to position the child element the basket */
+                position: relative;
+
                 /*border-top: 2px;*/
                 border: 1px solid black;
-                border-width: 2px;
                 background-color: rgb(227, 236, 248);
             }
 
@@ -87,7 +89,6 @@
                 
                 /*border-top: 2px;*/
                 border: 1px solid black;
-                border-width: 2px;
                 background-color: rgb(60, 182, 166);    
             }
 
@@ -116,8 +117,8 @@
                 width: 70px;
                 height: 30px;
                 
-                /* fix the position of the basket just above (10px above its parent element */
-                /* position: absolute;*/
+                /* fix the position of the basket just above the bottom of its parent element */
+                position: absolute;
                 bottom: 10px;
 
                 /* center the basket in the middle of the parent  */
@@ -125,7 +126,7 @@
                 transform: translateX(-50%); /* when translateX is parameter to the transform, the translateX(-50%) positions the basket to the left, half the wide of the basket so that it is now in the center of the parent */
 
                 /* color of the basket */
-                border: 5px solid #ff5733; /* Border color */
+                border: 3px solid #ff5733; /* Border color */
                 
                 /* make it look like a basket shape - U-shape*/
                 border-top: none; /* Remove top half/border (bottom-right, and bottom-left) rounded to form U shape */
@@ -136,10 +137,10 @@
                 /* background-color: transparent; */
             }
 
-            /* Hidden Class * /
+           /*  Hidden Class */
             .hidden {
                 display: none;
-            } */
+            } 
 
             /* Game Over Screen */
             #gameOver {
@@ -147,10 +148,11 @@
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-                background-color: white;
-                border: 2px solid black;
+                /*height: 170px;*/
+                background-color: rgb(32, 178, 170);
+                border: 1px solid black;
                 padding: 20px;
                 text-align: center;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+                box-shadow: 10px 10px 5px rgba(0, 0, 0, 1.0);
             }
   
