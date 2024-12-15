@@ -71,25 +71,48 @@ document.addEventListener("keydown", (event) => {
     //}
 
     const basketPosition = basket.offsetLeft; /* get the number of pixels the distance (in pixels) the left edge of the basket is away from its parent */
-        console.log("---");
-        console.log(`basketwidth=${basket.clientWidth}`);        
-        console.log(`basket-offsetleft=${basket.offsetLeft}`);
-        console.log(`basketPosition=${basketPosition}`);        
-        console.log(`basketPosition - basket.clientWidth=${basketPosition - basket.clientWidth}`);
+ //       console.log("---");
+ //       console.log(`basket-clientWidth=${basket.clientWidth}`);        
+ //       console.log(`basket-offsetleft=${basket.offsetLeft}`);
+ //       console.log(`basketPosition=${basketPosition}`);        
+ //       console.log(`basketPosition - basket.clientWidth=${basketPosition - basket.clientWidth}`);
     //
     //move the basket left or rigth based on the left or right button pressed.
     if (event.key === "ArrowLeft") {
-        if ((basketPosition - basket.clientWidth) > 0) {  /* move bastket only with in the parent container (gamescreen) so even if left key pressed dont move it too left beyond the gameScreen */
-            basket.style.left = `${basketPosition - 20}px`; /* move the basket left by 20px when left key is pressed*/
+        if ((basketPosition - basket.clientWidth) > 20) {  /* move bastket only with in the parent container (gamescreen) so even if left key pressed dont move it too left beyond the gameScreen */
+            basket.style.left = `${(basketPosition - 20)}px`; /* move the basket left by 20px when left key is pressed*/
+        }
+        else{
+            basket.style.left = `${(basket.clientWidth/2)}px`;
         } 
-        else if ((basketPosition - basket.clientWidth) < 20) {
-            basket.style.left = `${basket.clientWidth}px`;
-        } 
+//        else if ((basketPosition - basket.clientWidth) < 20) {
+//            basket.style.left = `${basket.clientWidth}px`;
+//            basket.style.left = `${(basket.clientWidth/2)}px`;
+//        } 
     }
-    else if (event.key === "ArrowRight" && basketPosition < gameScreen.clientWidth - basket.offsetWidth) {  /* move bastket only with in the parent container (gamescreen) so even if right pressed dont move it right beyond the gameScreen */
-         basket.style.left = `${basketPosition + 20}px`; /* move the basket right by 20px when right key is pressed*/
+    else if (event.key === "ArrowRight") { 
+        console.log("---");
+        console.log(`basket.clientWidth=${basket.clientWidth}`);          
+        console.log(`basketPosition=${basketPosition}`);        
+        console.log(`basketPosition + basket.clientWidth=${basketPosition  + basket.clientWidth}`);        
+        console.log(`gameScreen.clientWidth=${gameScreen.clientWidth}`);
+        console.log(`basketPosition + 20=${basketPosition + 20}`);        
+ //       console.log(`((basketPosition + basket.clientWidth) - gameScreen.clientWidth)=${((basketPosition + basket.clientWidth) - gameScreen.clientWidth)}`);        
+        console.log(`((gameScreen.clientWidth -(basketPosition  + basket.clientWidth)))=${((gameScreen.clientWidth -(basketPosition  + basket.clientWidth)))}`);
+ 
+        if ((gameScreen.clientWidth - (basketPosition + basket.clientWidth)) > 20) {  /* move bastket only with in the parent container (gamescreen) so even if right pressed dont move it right beyond the gameScreen */
+//        if ((basketPosition + basket.clientWidth + 20) < (gameScreen.clientWidth)) {  /* move bastket only with in the parent container (gamescreen) so even if right pressed dont move it right beyond the gameScreen */
+                basket.style.left = `${(basketPosition + 20)}px`; /* move the basket right by 20px when right key is pressed*/
+        }
+        else{
+            basket.style.left = `${(basketPosition+((gameScreen.clientWidth -(basketPosition + basket.clientWidth)))+(basket.clientWidth/2))}px`;
+        }        
     }
-        
+//    else if (event.key === "ArrowRight") { 
+//        if (basketPosition < (gameScreen.clientWidth - basket.offsetWidth)) {  /* move bastket only with in the parent container (gamescreen) so even if right pressed dont move it right beyond the gameScreen */
+//         basket.style.left = `${basketPosition + 20}px`; /* move the basket right by 20px when right key is pressed*/
+//        }       
+//    }        
     // workin code
     //get the postion of the bastket 
     //const basketPosition = basket.offsetLeft; /* get the number of pixels the distance (in pixels) the left edge of the basket is away from its parent */
