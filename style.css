@@ -14,7 +14,7 @@
         /*align-items: center;*/
         }
 
-        .gameContainer {
+        #gameContainer {
             /*float: auto;*/
             margin-top : 75px;
             width: 435px;
@@ -65,7 +65,7 @@
                 background-color: rgb(119, 160, 214);
             }
 
-            .gameScreen {
+            #gameScreen {
                 /*margin-top : 5px;*/
                 /*margin-left : 5px;*/
                 text-align: center;  
@@ -117,7 +117,7 @@
                 height: 30px;
                 
                 /* fix the position of the basket just above (10px above its parent element */
-                position: absolute;
+                /* position: absolute;*/
                 bottom: 10px;
 
                 /* center the basket in the middle of the parent  */
@@ -135,3 +135,22 @@
                 background-color: rgba(255, 87, 51, 0.30);  /* the last parameter value 0.30 makes it 30% opacity */
                 /* background-color: transparent; */
             }
+
+            /* Hidden Class * /
+            .hidden {
+                display: none;
+            } */
+
+            /* Game Over Screen */
+            #gameOver {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: white;
+                border: 2px solid black;
+                padding: 20px;
+                text-align: center;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            }
+  

@@ -4,10 +4,13 @@ const ballCatchSound = new Audio("sounds/ball-catch3.wav");
 const ballMissSound = new Audio("sounds/ball-miss2.wav");
 const lostGameSound = new Audio("sounds/lost-game.mp3");
 
+// get handle to the needed DOM elements in the game
+
 // get a handle/pointer to the basket so that it can be moved 
 // left or right basked on the key pressed from the key press 
 // (keydown) EventListner of the document object.
 const basket = document.getElementById("basket");
+
 const gameScreen = document.getElementById("gameScreen");
 const scoreDisplay = document.getElementById("score");
 const livesDisplay = document.getElementById("lives");
@@ -138,7 +141,7 @@ function ballMissed(ball, ballInterval) {
         livesDisplay.style.fontWeight = "bold"; 
         break;
       default :
-        livesDisplay.style.color = "black";
+        livesDisplay.style.color = "green";
         livesDisplay.style.fontWeight = "normal"; 
     }
     
