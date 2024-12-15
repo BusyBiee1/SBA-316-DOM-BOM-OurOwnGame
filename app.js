@@ -38,15 +38,28 @@ document.addEventListener("keydown", (e) => {
     if (isGameOver) return;
 
     // get the postion of the bastket 
-    const basketPosition = basket.offsetLeft; /* get the number of pixels the distance (in pixels) the left edge of the basket is away from its parent */
+    //const parentRect = gameScreen.getBoundingClientRect();
+    //const childRect = basket.getBoundingClientRect();
+    //basketPosition = childRect.left;
+    //// move the basket left or rigth based on the left or right button pressed.
+    //if ((e.key === "ArrowLeft") && (basketPosition < parentRect.left)) {  /* move bastket only with in the parent container (gamescreen) so even if left key pressed dont move it too left beyond the gameScreen */
+    //    basket.style.left = `${basketPosition - 20}px`; /* move the basket left by 20px when left key is pressed*/
+    //} 
+    //else if (e.key === "ArrowRight" && basketPosition < gameScreen.clientWidth - basket.offsetWidth) {  /* move bastket only with in the parent container (gamescreen) so even if right pressed dont move it right beyond the gameScreen */
+    //  basket.style.left = `${basketPosition + 20}px`; /* move the basket right by 20px when right key is pressed*/
+    //}
+
+   // get the postion of the bastket 
+     const basketPosition = basket.offsetLeft; /* get the number of pixels the distance (in pixels) the left edge of the basket is away from its parent */
   
-    // move the basket left or rigth based on the left or right button pressed.
-    if (e.key === "ArrowLeft" && basketPosition > 0) {  /* move bastket only with in the parent container (gamescreen) so even if left key pressed dont move it too left beyond the gameScreen */
-      basket.style.left = `${basketPosition - 20}px`; /* move the basket left by 20px when left key is pressed*/
-    } 
-    else if (e.key === "ArrowRight" && basketPosition < gameScreen.clientWidth - basket.offsetWidth) {  /* move bastket only with in the parent container (gamescreen) so even if right pressed dont move it right beyond the gameScreen */
-      basket.style.left = `${basketPosition + 20}px`; /* move the basket right by 20px when right key is pressed*/
-    }
+    //move the basket left or rigth based on the left or right button pressed.
+      if ((e.key === "ArrowLeft") && (basketPosition > 0)) {  /* move bastket only with in the parent container (gamescreen) so even if left key pressed dont move it too left beyond the gameScreen */
+         basket.style.left = `${basketPosition - 20}px`; /* move the basket left by 20px when left key is pressed*/
+      } 
+      else if (e.key === "ArrowRight" && basketPosition < gameScreen.clientWidth - basket.offsetWidth) {  /* move bastket only with in the parent container (gamescreen) so even if right pressed dont move it right beyond the gameScreen */
+         basket.style.left = `${basketPosition + 20}px`; /* move the basket right by 20px when right key is pressed*/
+      }
+    
 });
 
 // Spawn/Throw a new ball
@@ -69,8 +82,8 @@ function spawnBall() {
     let ballPosition = 0;
 
     // Start the animation or moving of the ball and continusouly monitor the the position of the ball every 5 milliseconds for collision of the ball with the basket
-    const ballInterval = setInterval(() => { /* this setInterval function runs every 5 milliseconds */
-      ballPosition += 5; /* advance the ball counter */
+    const ballInterval = setInterval(() => { /* this setInterval function runs every 5 milliseconds  (see botton ,50)*/
+      ballPosition += 5; /* advance the ball counter by 5 counts */
       ball.style.top = `${ballPosition}px`; /* advance the ball on the screen by that many (ballposition counter) pixels */
   
       // Check for the possible ball basket collision only after the ball reaches close to bottom of the gameScreen past the basket level to see if ball missed or caught
