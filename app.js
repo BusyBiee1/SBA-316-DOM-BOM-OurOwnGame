@@ -160,16 +160,20 @@ function ballMissed(ball, ballInterval) {
  
     /* update the number of lives after the missedball and disply it add color to the no of lives left*/
     lives--;
-    livesDisplay.textContent = lives;
+    livesDisplay.textContent = `${lives}/3`;
+    parent;
     switch (lives) {
         case 2: 
             livesDisplay.style.color = "rgb(241, 217, 76)";
             livesDisplay.style.fontWeight = "bold"; 
+            parent = gameScreen.parentNode; 
+            //console.log(grandparent.id);
+            parent.style.boxShadow = "10px 10px 5px rgb(255, 255, 0)";           
             break;
         case 1: 
             livesDisplay.style.color = "red";
             livesDisplay.style.fontWeight = "bold"; 
-            const parent = gameScreen.parentNode; 
+            parent = gameScreen.parentNode; 
             //console.log(grandparent.id);
             parent.style.boxShadow = "10px 10px 5px rgb(255, 0, 0)";
             //gameScreen.parentElement.backgroundColor= "red";
@@ -206,8 +210,8 @@ function ballMissed(ball, ballInterval) {
 //            })            
             break;
         default :
-            livesDisplay.style.color = "black";
-            livesDisplay.style.fontWeight = "normal"; 
+            //livesDisplay.style.color = "black";
+            //livesDisplay.style.fontWeight = "normal"; 
     }
 
     // if no lives left end game if not continue 
@@ -252,7 +256,7 @@ function resetGame() {
     score = 0;
     lives = 3;
     scoreDisplay.textContent = score;
-    livesDisplay.textContent = lives;
+    livesDisplay.textContent = `${lives}/3`;
     livesDisplay.style.color = "green";
     livesDisplay.style.fontWeight = "bold"; 
     gameOverScreen.classList.add("hidden"); /* make the game over form hidden by adding a hidden class with display set to none to make it disappear*/
