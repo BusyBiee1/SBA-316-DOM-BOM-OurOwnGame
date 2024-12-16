@@ -187,13 +187,13 @@ function ballMissed(ball, ballInterval) {
             //scoreBoard.parentNode.style.boxShadow = "0 0 10px rgb(255, 0, 0)";    
             //    for (let child of scoreBoard.children) {
             //        if (child.tagName === "P") {
-            //          const span = child.querySelector("span"); // Access the <span> inside <p>
-            //          span.style.color = "red"; // Change text color to blue
+            //          const span = child.querySelector("span"); 
+            //          span.style.color = "red"; 
             //        }
             //      }
                 //if (sibling !== currentElement) {
-                //    console.log(sibling); // Do something with each sibling
-                //    sibling.style.backgroundColor = 'red'; // Example: Change background
+                //    console.log(sibling); 
+                //    sibling.style.backgroundColor = 'red'; 
                // }
             //});
             //console.log(gameScreen.sibliparentElement.backgroundColor);
@@ -204,7 +204,7 @@ function ballMissed(ball, ballInterval) {
                 //    child.child.style.fontWeight  = "bold"; 
                 //}
 //            gameScreen.forEach ((child) => {
-//                child.background.color = "red"; // Default
+//                child.background.color = "red"; 
 //                setTimeout(() => endGame(), 1500);
 //                child.background.color = "transparent"; 
 //            })            
@@ -242,7 +242,7 @@ function endGame() {
     isGameOver = true;
     finalScore.textContent = `${ThePlayerName}: Your Final Score: ${score}`; /* display final score */
     gameOverScreen.classList.remove("hidden"); /* unhiding the gameoverscrreen element a form (remove the hidden class from the gameOverScrreen element's list of classes that was added earlier) in the classList collection of gameOverSreen element */
-    //const grandparent = gameScreen.parentNode; // Access grandparent
+    //const grandparent = gameScreen.parentNode; 
     //console.log(grandparent.id);
     
 }
