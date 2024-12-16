@@ -4,8 +4,9 @@ const ballCatchSound = new Audio("sounds/ball-catch3.wav");
 const ballMissSound = new Audio("sounds/ball-miss2.wav");
 const lostGameSound = new Audio("sounds/lost-game.mp3");
 
-// get handle to the needed DOM elements in the game
+let ThePlayerName = "";
 
+// get handle to the needed DOM elements in the game
 // get a handle/pointer to the basket so that it can be moved 
 // left or right basked on the key pressed from the key press 
 // (keydown) EventListner of the document object.
@@ -19,17 +20,30 @@ const playerNameInput = document.getElementById("playerName");
 const gameOverScreen = document.getElementById("gameOver");
 const finalScore = document.getElementById("finalScore");
 const restartBtn = document.getElementById("restartBtn");
+//const playerName = document.getElementsByClassName("playername");
+//const scoreBoard = document.getElementById("scoreBoard");
 
 // Game variables and counters
 let score = 0;
 let lives = 3;
 let isGameOver = false;
+//const ThePlayerName;
 
 // Add a new event submit to the playerform (where user enters and presses the start button) so that game can begin after reseting to game start variables
 playerForm.addEventListener("submit", (event) => {
   event.preventDefault(); /* prevent its default behavior of submitting */
+  //console.log(event);
+  //console.log("Player Name for object:",event.target.elements["playerName"].value);
+  ThePlayerName = event.target.elements["playerName"].value;
+  //ThePlayerName = playerForm.value;
+  //console.log("Player Name:",playerForm.value);
   resetGame(); /* and we have have our own resetGame event triggered on submit event */
+
+  //TheplayerName = document.getElementById("playerName").value;
 });
+
+//TheplayerName = playerForm.playerName;
+//console.log(TheplayerName);
 
 // Move the basket based to the left or right keydown event from EventListner 
 document.addEventListener("keydown", (event) => {
@@ -143,24 +157,59 @@ function ballMissed(ball, ballInterval) {
     ball.style.transition = "top 1s ease-in"; /* Set the transition effort to start slowly and then slowly speed up */
     ball.style.top = `${gameScreen.clientHeight + 50}px`; /* set the location of the ball to start dropping from */ 
     setTimeout(() => ball.remove(), 1000); /*after every 1 sec remove that ball so the next ball can be place with the animation offset */
-  
-    /* update the number of lives after the missedball and disply it */
+ 
+    /* update the number of lives after the missedball and disply it add color to the no of lives left*/
     lives--;
     livesDisplay.textContent = lives;
     switch (lives) {
-      case 2:
-        livesDisplay.style.color = "rgb(241, 217, 76)";
-        livesDisplay.style.fontWeight = "bold"; 
-        break;
-      case 1:
-        livesDisplay.style.color = "red";
-        livesDisplay.style.fontWeight = "bold"; 
-        break;
-      default :
-        livesDisplay.style.color = "black";
-        livesDisplay.style.fontWeight = "normal"; 
+        case 2: 
+            livesDisplay.style.color = "rgb(241, 217, 76)";
+            livesDisplay.style.fontWeight = "bold"; 
+            break;
+        case 1: 
+            livesDisplay.style.color = "red";
+            livesDisplay.style.fontWeight = "bold"; 
+            const parent = gameScreen.parentNode; 
+            //console.log(grandparent.id);
+            parent.style.boxShadow = "10px 10px 5px rgb(255, 0, 0)";
+            //gameScreen.parentElement.backgroundColor= "red";
+            //gameScreen.forEach (sibling)
+            //const siblings = Array.from(gameScreen.siblings);
+            //scoreBoard.forEach(child)
+
+            //scoreBoard.forEach((child) => {
+            //    console.log(child.id);
+            //    child.style.Color = "red"; 
+            //scoreBoard.parentNode.style.boxShadow = "0 0 10px rgb(255, 0, 0)";    
+            //    for (let child of scoreBoard.children) {
+            //        if (child.tagName === "P") {
+            //          const span = child.querySelector("span"); // Access the <span> inside <p>
+            //          span.style.color = "red"; // Change text color to blue
+            //        }
+            //      }
+                //if (sibling !== currentElement) {
+                //    console.log(sibling); // Do something with each sibling
+                //    sibling.style.backgroundColor = 'red'; // Example: Change background
+               // }
+            //});
+            //console.log(gameScreen.sibliparentElement.backgroundColor);
+                //if (child.id !== "basket") {
+                //    console.log(child.child.id);
+                //    child.child.style.Color = "red"; 
+                //    console.log(child.child.style.Color);
+                //    child.child.style.fontWeight  = "bold"; 
+                //}
+//            gameScreen.forEach ((child) => {
+//                child.background.color = "red"; // Default
+//                setTimeout(() => endGame(), 1500);
+//                child.background.color = "transparent"; 
+//            })            
+            break;
+        default :
+            livesDisplay.style.color = "black";
+            livesDisplay.style.fontWeight = "normal"; 
     }
-    
+
     // if no lives left end game if not continue 
     if (lives === 0) {
       setTimeout(() => endGame(), 1500); /* force a delay so that sounds can be played and restart game window can be shown so the transition is not abrupt */
@@ -187,8 +236,11 @@ function clearBalls() {
 function endGame() {
 
     isGameOver = true;
-    finalScore.textContent = `Your Final Score: ${score}`; /* display final score */
+    finalScore.textContent = `${ThePlayerName}: Your Final Score: ${score}`; /* display final score */
     gameOverScreen.classList.remove("hidden"); /* unhiding the gameoverscrreen element a form (remove the hidden class from the gameOverScrreen element's list of classes that was added earlier) in the classList collection of gameOverSreen element */
+    //const grandparent = gameScreen.parentNode; // Access grandparent
+    //console.log(grandparent.id);
+    
 }
 
 // Restart game by adding a click event to the EventListener prperty list of the restartBtn element so that click event can be captures when the user presses the restartBtn to resetGame and start the game all over again */
@@ -204,6 +256,7 @@ function resetGame() {
     livesDisplay.style.color = "green";
     livesDisplay.style.fontWeight = "bold"; 
     gameOverScreen.classList.add("hidden"); /* make the game over form hidden by adding a hidden class with display set to none to make it disappear*/
+    gameOverScreen.parentNode.style.boxShadow = "10px 10px 5px rgba(0, 0, 0, 1.0)";
     clearBalls();
     spawnBall();
   }

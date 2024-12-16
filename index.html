@@ -19,7 +19,7 @@
             <!-- The score board and lives left area -->
             <div class="scoreBoard"> 
                 <p>Score: <span id="score">0</span></p>
-                <p>Lives Left: <span id="lives">3</span></p>               
+                <p>Lives Left: <span id="lives">3</span></p>
             </div>
 
             <!-- The actual game playing displayed area -->
@@ -32,7 +32,7 @@
                 <!-- Player Name Form -->
                 <form id="playerForm">
                 <label for="playerName">Enter Your Name:</label>
-                <input type="text" id="playerName" placeholder="Your Name" required />
+                <input type="text" id="playerName" placeholder="Your Name" required pattern="[a-zA-Z]+"/>
                 <button type="submit">Start Game</button>
                 </form>                
             </div>     
@@ -41,7 +41,7 @@
             <div id="gameOver" class="hidden">
                 <h2>Game Over</h2>
                 <p id="finalScore"></p>
-                <button id="restartBtn">Restart</button>
+                <button id="restartBtn">Restart Game</button>
             </div>            
         </div>
 
