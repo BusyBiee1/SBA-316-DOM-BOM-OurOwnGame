@@ -209,7 +209,7 @@ function ballMissed(ball, ballInterval) {
 //                child.background.color = "transparent"; 
 //            })            
             break;
-        default :
+    //    default :
             //livesDisplay.style.color = "black";
             //livesDisplay.style.fontWeight = "normal"; 
     }
@@ -225,7 +225,7 @@ function ballMissed(ball, ballInterval) {
   /*  if (lives === 0) {
       endGame();
     } else {
-      setTimeout(() => spawnBall(), 1500); // Delay before next ball
+      setTimeout(() => spawnBall(), 1500); 
     }
   */
 }
